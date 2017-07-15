@@ -1,8 +1,9 @@
 import * as React from 'react';
 import * as Bootstrap from 'react-bootstrap';
+import * as ReactRouter from 'react-router-dom';
 
 import AppNavbar from './components/AppNavbar';
-import SaveForLaterForm from './components/SaveForLaterForm';
+import NewSaveForLater from './scenes/NewSaveForLater';
 import SavedTexts from './components/SavedTexts';
 
 export default class App extends React.Component<{}, {}>
@@ -10,19 +11,24 @@ export default class App extends React.Component<{}, {}>
     render()
     {
         return (
-            <Bootstrap.Grid>
-                <AppNavbar />
+            <ReactRouter.BrowserRouter>
+                <Bootstrap.Grid>
+                    <AppNavbar />
 
-                <Bootstrap.Row>
-                    <Bootstrap.Col xs={12} md={6} mdOffset={3}>
+                    <Bootstrap.Row>
+                        <Bootstrap.Col xs={12} md={6} mdOffset={3}>
 
-                        <SaveForLaterForm />
+                            <ReactRouter.Switch>
+                                <ReactRouter.Route exact={true} path="/" component={NewSaveForLater} />
+                                <ReactRouter.Redirect to="/" />
+                            </ReactRouter.Switch>
 
-                        <SavedTexts />
+                            <SavedTexts />
 
-                    </Bootstrap.Col>
-                </Bootstrap.Row>
-            </Bootstrap.Grid>
+                        </Bootstrap.Col>
+                    </Bootstrap.Row>
+                </Bootstrap.Grid>
+            </ReactRouter.BrowserRouter>
         );
     }
 }

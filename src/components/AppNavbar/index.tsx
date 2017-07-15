@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as Bootstrap from 'react-bootstrap';
+import * as ReactRouter from 'react-router-dom';
 
 import './styles.css';
 
@@ -11,7 +12,7 @@ export default class AppNavbar extends React.Component<{}, {}>
             <Bootstrap.Navbar inverse={false} fluid={true} collapseOnSelect={true}>
                 <Bootstrap.Navbar.Header>
                     <Bootstrap.Navbar.Brand>
-                        <a href="/">Save for Later</a>
+                        <ReactRouter.Link to="/">Save for Later</ReactRouter.Link>
                     </Bootstrap.Navbar.Brand>
                     <Bootstrap.Navbar.Toggle />
                 </Bootstrap.Navbar.Header>
