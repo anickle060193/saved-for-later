@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as Bootstrap from 'react-bootstrap';
 
-import './AppNavbar.css';
+import './styles.css';
 
 export default class AppNavbar extends React.Component<{}, {}>
 {
