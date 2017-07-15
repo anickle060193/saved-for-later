@@ -1,24 +1,25 @@
 import * as React from 'react';
-import './App.css';
+import * as Bootstrap from 'react-bootstrap';
 
-const logo = require( './logo.svg' );
+import AppNavbar from './components/AppNavbar';
+import SaveForLaterForm from './components/SaveForLaterForm';
 
-class App extends React.Component<{}, {}>
+export default class App extends React.Component<{}, {}>
 {
     render()
     {
         return (
-            <div className="App">
-                <div className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <h2>Welcome to React</h2>
-                </div>
-                <p className="App-intro">
-                    To get started, edit <code>src/App.tsx</code> and save to reload.
-                </p>
-            </div>
+            <Bootstrap.Grid>
+                <AppNavbar />
+
+                <Bootstrap.Row>
+                    <Bootstrap.Col xs={12} md={6} mdOffset={3}>
+
+                        <SaveForLaterForm />
+
+                    </Bootstrap.Col>
+                </Bootstrap.Row>
+            </Bootstrap.Grid>
         );
     }
 }
-
-export default App;
