@@ -1,0 +1,1 @@
+declare module '@jshimko/react-time-ago';
