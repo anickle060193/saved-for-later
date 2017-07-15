@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as ReactRouter from 'react-router-dom';
+import * as Bootstrap from 'react-bootstrap';
 
 import SaveForLaterForm from './SaveForLaterForm';
 
@@ -15,7 +16,11 @@ export default class NewSaveForLater extends React.Component<SavedForLaterProps,
     render()
     {
         return (
-            <SaveForLaterForm onSaved={( savedTextKey ) => this.onSaved( savedTextKey )} />
+            <Bootstrap.Row>
+                <Bootstrap.Col xs={12} md={6} mdOffset={3}>
+                    <SaveForLaterForm onSaved={( savedTextKey ) => this.onSaved( savedTextKey )} />
+                </Bootstrap.Col>
+            </Bootstrap.Row>
         );
     }
 

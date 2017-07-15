@@ -15,17 +15,12 @@ export default class App extends React.Component<{}, {}>
                 <Bootstrap.Grid>
                     <AppNavbar />
 
-                    <Bootstrap.Row>
-                        <Bootstrap.Col xs={12} md={6} mdOffset={3}>
+                    <ReactRouter.Switch>
+                        <ReactRouter.Route exact={true} path="/" component={NewSaveForLater} />
+                        <ReactRouter.Route path="/saved/:saved_text_key" component={SavedForLater} />
+                        <ReactRouter.Redirect to="/" />
+                    </ReactRouter.Switch>
 
-                            <ReactRouter.Switch>
-                                <ReactRouter.Route exact={true} path="/" component={NewSaveForLater} />
-                                <ReactRouter.Route path="/saved/:saved_text_key" component={SavedForLater} />
-                                <ReactRouter.Redirect to="/" />
-                            </ReactRouter.Switch>
-
-                        </Bootstrap.Col>
-                    </Bootstrap.Row>
                 </Bootstrap.Grid>
             </ReactRouter.BrowserRouter>
         );
