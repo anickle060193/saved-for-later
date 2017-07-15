@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as Bootstrap from 'react-bootstrap';
 import * as ReactRouter from 'react-router-dom';
+import * as ReactRouterBootstrap from 'react-router-bootstrap';
 
 import './styles.css';
 
@@ -18,12 +19,9 @@ export default class AppNavbar extends React.Component<{}, {}>
                 </Bootstrap.Navbar.Header>
                 <Bootstrap.Navbar.Collapse>
                     <Bootstrap.Nav pullRight={true}>
-                        <Bootstrap.NavItem href="/">New Save</Bootstrap.NavItem>
-                        <Bootstrap.NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                            <Bootstrap.MenuItem >Action</Bootstrap.MenuItem>
-                            <Bootstrap.MenuItem divider={true} />
-                            <Bootstrap.MenuItem>Separated Action</Bootstrap.MenuItem>
-                        </Bootstrap.NavDropdown>
+                        <ReactRouterBootstrap.LinkContainer exact={true} to="/">
+                            <Bootstrap.NavItem >New Save</Bootstrap.NavItem>
+                        </ReactRouterBootstrap.LinkContainer>
                     </Bootstrap.Nav>
                 </Bootstrap.Navbar.Collapse>
             </Bootstrap.Navbar>
