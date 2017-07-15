@@ -45,7 +45,7 @@ export default class SaveForLaterForm extends React.Component<SaveForLaterFormPr
                     <Bootstrap.FormControl componentClass="textarea" rows={10} value={this.state.text} onChange={( e ) => this.onChange( e )} />
                     <Bootstrap.HelpBlock>{this.state.textError}</Bootstrap.HelpBlock>
                 </Bootstrap.FormGroup>
-                <Bootstrap.Button type="submit" bsStyle="primary" block={true} onClick={( e ) => this.onSubmit( e )}>
+                <Bootstrap.Button type="button" bsStyle="primary" block={true} onClick={( e ) => this.onClick( e )}>
                     Save
                 </Bootstrap.Button>
             </form>
@@ -57,10 +57,8 @@ export default class SaveForLaterForm extends React.Component<SaveForLaterFormPr
         this.setState( { text: ( e.target as HTMLTextAreaElement ).value } );
     }
 
-    private onSubmit( e: React.FormEvent<React.ClassicComponent<Bootstrap.ButtonProps, {}>> )
+    private onClick( e: React.FormEvent<React.ClassicComponent<Bootstrap.ButtonProps, {}>> )
     {
-        e.preventDefault();
-
         if( !this.state.text || this.state.text.length === 0 )
         {
             this.setState( { textError: 'Text must not be empty' } );
