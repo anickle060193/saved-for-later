@@ -4,17 +4,22 @@ import * as firebase from 'firebase';
 
 import * as database from './../../../database';
 
+interface SaveForLaterFormProps
+{
+    onSaved: ( savedTextKey: string ) => void;
+}
+
 interface SaveForLaterFormState
 {
     text: string;
     textError: string | null;
 }
 
-export default class SaveForLaterForm extends React.Component<{}, SaveForLaterFormState>
+export default class SaveForLaterForm extends React.Component<SaveForLaterFormProps, SaveForLaterFormState>
 {
     allSavedTexts: firebase.database.Reference;
 
-    constructor( props: { } )
+    constructor( props: SaveForLaterFormProps )
     {
         super( props );
 
@@ -56,16 +61,25 @@ export default class SaveForLaterForm extends React.Component<{}, SaveForLaterFo
     {
         e.preventDefault();
 
-        database.createSavedText( this.allSavedTexts, this.state.text ).then(
-            () =>
+        if( !this.state.text || this.state.text.length === 0 )
+        {
+            this.setState( { textError: 'Text must not be empty' } );
+            return;
+        }
+
+        let savedText: database.SavedText = {
+            text: this.state.text,
+            createdAt: firebase.database.ServerValue.TIMESTAMP as number
+        };
+        this.allSavedTexts.push( savedText ).then(
+            ( data: firebase.database.Reference ) =>
             {
-                console.log( 'Success' );
                 this.setState( { text: '', textError: null } );
+                this.props.onSaved( data.key as string );
             },
             ( error ) =>
             {
-                console.log( 'Error' );
-                this.setState( { textError: error } );
+                console.error( error );
             }
         );
     }

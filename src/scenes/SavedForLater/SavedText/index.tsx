@@ -1,7 +1,7 @@
 import * as React from 'react';
 import TimeAgo from '@jshimko/react-time-ago';
 
-import * as database from './../../database';
+import * as database from './../../../database';
 
 interface SavedTextProps
 {
