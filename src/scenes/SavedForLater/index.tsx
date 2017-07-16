@@ -1,8 +1,9 @@
 import * as React from 'react';
 import * as firebase from 'firebase';
+import * as Boostrap from 'react-bootstrap';
 import * as ReactRouter from 'react-router-dom';
 
-import SavedText from './SavedText';
+import { SavedTextTimeAgo } from './../../components/SavedText';
 import * as database from './../../database';
 
 type SavedForLaterProps = ReactRouter.RouteComponentProps<{ saved_text_key: string }>;
@@ -54,7 +55,12 @@ export default class SavedForLater extends React.Component<SavedForLaterProps, S
     {
         if( this.state.savedText )
         {
-            return <SavedText savedText={this.state.savedText} />;
+            return (
+                <Boostrap.Jumbotron className="text-center">
+                    <h2>{this.state.savedText.text}</h2>
+                    <p><SavedTextTimeAgo savedText={this.state.savedText} /></p>
+                </Boostrap.Jumbotron>
+            );
         }
         else
         {

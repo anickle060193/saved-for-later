@@ -5,6 +5,7 @@ import * as ReactRouter from 'react-router-dom';
 import AppNavbar from './components/AppNavbar';
 import NewSaveForLater from './scenes/NewSaveForLater';
 import SavedForLater from './scenes/SavedForLater';
+import RecentSavedForLater from './scenes/RecentSavedForLater';
 
 export default class App extends React.Component<{}, {}>
 {
@@ -18,6 +19,7 @@ export default class App extends React.Component<{}, {}>
                     <ReactRouter.Switch>
                         <ReactRouter.Route exact={true} path="/" component={NewSaveForLater} />
                         <ReactRouter.Route path="/saved/:saved_text_key" component={SavedForLater} />
+                        <ReactRouter.Route path="/saves" component={RecentSavedForLater} />
                         <ReactRouter.Redirect to="/" />
                     </ReactRouter.Switch>
 
