@@ -19,6 +19,9 @@ export default class AppNavbar extends React.Component<{}, {}>
                 </Bootstrap.Navbar.Header>
                 <Bootstrap.Navbar.Collapse>
                     <Bootstrap.Nav pullRight={true}>
+                        <ReactRouterBootstrap.LinkContainer to="/saves">
+                            <Bootstrap.NavItem >Recent Saves</Bootstrap.NavItem>
+                        </ReactRouterBootstrap.LinkContainer>
                         <ReactRouterBootstrap.LinkContainer exact={true} to="/">
                             <Bootstrap.NavItem >New Save</Bootstrap.NavItem>
                         </ReactRouterBootstrap.LinkContainer>
