@@ -1,0 +1,10 @@
+a.panel-link
+{
+    color: inherit;
+    text-decoration: inherit;
+}
+
+a.panel-link .panel:hover
+{
+    background-color: #f5f5f5;
+}

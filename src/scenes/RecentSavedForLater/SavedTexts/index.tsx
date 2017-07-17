@@ -1,12 +1,13 @@
 import * as React from 'react';
 import * as firebase from 'firebase';
 import * as Bootstrap from 'react-bootstrap';
-
+import * as ReactRouter from 'react-router-dom';
 import Masonry from 'react-masonry-component';
 
 import * as database from './../../../database';
-
 import { SavedTextTimeAgo } from './../../../components/SavedText';
+
+import './styles.css';
 
 interface SavedTextsState
 {
@@ -77,12 +78,14 @@ export default class SavedTexts extends React.Component<{}, SavedTextsState>
                 {
                     Object.keys( this.state.savedTexts ).map( ( key ) =>
                         <div key={key} className="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                            <Bootstrap.Panel>
-                                <p>{this.state.savedTexts[ key ].text}</p>
-                                <small>
-                                    <SavedTextTimeAgo savedText={this.state.savedTexts[ key ]} />
-                                </small>
-                            </Bootstrap.Panel>
+                            <ReactRouter.Link to={'saved/' + key} className="panel-link">
+                                <Bootstrap.Panel>
+                                    <p>{this.state.savedTexts[ key ].text}</p>
+                                    <small>
+                                        <SavedTextTimeAgo savedText={this.state.savedTexts[ key ]} />
+                                    </small>
+                                </Bootstrap.Panel>
+                            </ReactRouter.Link>
                         </div>
                     ).reverse()
                 }
