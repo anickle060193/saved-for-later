@@ -56,10 +56,12 @@ export default class SavedForLater extends React.Component<SavedForLaterProps, S
         if( this.state.savedText )
         {
             return (
-                <Boostrap.Jumbotron className="text-center">
-                    <h2>{this.state.savedText.text}</h2>
-                    <p><SavedTextTimeAgo savedText={this.state.savedText} /></p>
-                </Boostrap.Jumbotron>
+                <Boostrap.Col xs={12} md={6} mdOffset={3}>
+                    <Boostrap.Panel>
+                        <p>{this.state.savedText.text}</p>
+                        <p className="text-right"><SavedTextTimeAgo savedText={this.state.savedText} /></p>
+                    </Boostrap.Panel>
+                </Boostrap.Col>
             );
         }
         else
