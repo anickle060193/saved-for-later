@@ -13,7 +13,7 @@ export default class AppNavbar extends React.Component<{}, {}>
             <Bootstrap.Navbar inverse={false} fluid={true} collapseOnSelect={true}>
                 <Bootstrap.Navbar.Header>
                     <Bootstrap.Navbar.Brand>
-                        <ReactRouter.Link to="/">Save for Later</ReactRouter.Link>
+                        <ReactRouter.Link to="/">Saved for Later</ReactRouter.Link>
                     </Bootstrap.Navbar.Brand>
                     <Bootstrap.Navbar.Toggle />
                 </Bootstrap.Navbar.Header>
